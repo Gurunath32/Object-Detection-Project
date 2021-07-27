@@ -3,7 +3,7 @@ status="";
 objects=[];
 
 function preload() {
-    img=loadImage("living-room.jpg");
+    img=loadImage("desk.jpg");
 }
 
 function setup() {
