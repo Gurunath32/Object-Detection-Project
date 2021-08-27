@@ -3,7 +3,7 @@ status="";
 objects=[];
 
 function preload() {
-    img=loadImage("living-room1.jpg");
+    img=loadImage("bed-room1.jpg");
 }
 
 function setup() {
@@ -30,15 +30,17 @@ function gotresult(error,results) {
 } 
 
 function draw() {
-    if(status != undefined) {
-        image(img,0,0,350,350);
-        for(var i=0;i < objects.length; i++) {
-            document.getElementById("status").innerHTML="Status Object Detected "+objects.length;
-            fill(255,0,0);
+    image(img,0,0,350,350);
+
+    if(status != "") {
+
+        for(i=0;i < objects.length; i++) {
+            document.getElementById("status").innerHTML="There Are 5 Big Object And cocossd Has Detected "+objects.length;
+            fill('#FF0000');
             percentage=floor(objects[i].confidence * 100);
-            text(objects[i].label,objects[i].x+15,objects[i].y+15);
+            text(objects[i].label + " " +percentage +"%",objects[i].x +15,objects[i].y +15);
             noFill();
-            stroke(255,0,0);
+            stroke('#FF0000');
             rect(objects[i].x,objects[i].y,objects[i].width,objects[i].height);
         }
     }
